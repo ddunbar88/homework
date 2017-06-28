@@ -24,11 +24,11 @@ class AuthorsController < ApplicationController
   # POST /authors
   # POST /authors.json
   def create
-    @authors = Author.new(author_params)
+    @author = Author.new(author_params)
 
     respond_to do |format|
-      if @authors.save
-        format.html { redirect_to @authors, notice: 'Author was successfully created.' }
+      if @author.save
+        format.html { redirect_to @author, notice: 'Author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
