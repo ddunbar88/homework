@@ -13,8 +13,8 @@ class AuthorsController < ApplicationController
   end
 
   # GET /authors/new
-  def news
-    @authors = Author.new
+  def new
+    @author = Author.new
   end
 
   # GET /authors/1/edit
@@ -23,12 +23,12 @@ class AuthorsController < ApplicationController
 
   # POST /authors
   # POST /authors.json
-  def creates
-    @author = Author.new(author_params)
+  def create
+    @authors = Author.new(author_params)
 
     respond_to do |format|
-      if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+      if @authors.save
+        format.html { redirect_to @authors, notice: 'Author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
